@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Parking</title>
+<meta http-equiv="refresh" content="3">
+<style>
+body { font-family: Arial; text-align:center; }
+.box { font-size:28px; margin:20px; }
+</style>
+</head>
+
+<body>
+
+<h1>Smart Parking Status</h1>
+
+<div class="box">ช่อง 1: <span id="p1">loading...</span></div>
+<div class="box">ช่อง 2: <span id="p2">loading...</span></div>
+<div class="box">ช่อง 3: <span id="p3">loading...</span></div>
+
+<script>
+const token = "mDSxwdXTJV8hR0DsDj61AjsVoR_ieQrp";
+
+async function load(){
+let r1 = await fetch(`https://blynk.cloud/external/api/get?token=${token}&V0`);
+let r2 = await fetch(`https://blynk.cloud/external/api/get?token=${token}&V1`);
+let r3 = await fetch(`https://blynk.cloud/external/api/get?token=${token}&V2`);
+
+let d1 = await r1.text();
+let d2 = await r2.text();
+let d3 = await r3.text();
+
+document.getElementById("p1").innerHTML = d1 <= 10 ? "❌ ไม่ว่าง" : "✅ ว่าง";
+document.getElementById("p2").innerHTML = d2 <= 10 ? "❌ ไม่ว่าง" : "✅ ว่าง";
+document.getElementById("p3").innerHTML = d3 <= 10 ? "❌ ไม่ว่าง" : "✅ ว่าง";
+}
+
+load();
+</script>
+
+</body>
+</html>
