@@ -29,13 +29,14 @@ let d1 = await r1.text();
 let d2 = await r2.text();
 let d3 = await r3.text();
 
-document.getElementById("p1").innerHTML = d1 <= 10 ? "❌ ไม่ว่าง" : "✅ ว่าง";
-document.getElementById("p2").innerHTML = d2 <= 10 ? "❌ ไม่ว่าง" : "✅ ว่าง";
-document.getElementById("p3").innerHTML = d3 <= 10 ? "❌ ไม่ว่าง" : "✅ ว่าง";
+document.getElementById("p1").innerHTML = d1 <= 5 ? "❌ ไม่ว่าง" : "✅ ว่าง";
+document.getElementById("p2").innerHTML = d2 <= 5 ? "❌ ไม่ว่าง" : "✅ ว่าง";
+document.getElementById("p3").innerHTML = d3 <= 5 ? "❌ ไม่ว่าง" : "✅ ว่าง";
 }
 
 load();
 </script>
 
 </body>
+
 </html>
